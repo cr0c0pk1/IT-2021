@@ -53,6 +53,6 @@ public class User {
 			return false;
 		if (obj == this)
 			return true;
-		return this.getUsername() == ((User) obj).getUsername();
+		return this.getUsername().equals(((User) obj).getUsername());
 	}
 }

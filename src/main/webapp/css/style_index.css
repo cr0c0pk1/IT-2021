@@ -1,0 +1,150 @@
+.header {
+    background-color: #012e5e;
+    height: 100px;
+}
+
+.grayDiv {
+    overflow: auto;
+    background-color: #ccc;
+    margin: 0px auto;
+    padding-top: 20px;
+    color: #012e5e;
+}
+
+.centeredDiv {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+.imgDiv {
+    background-color: #ffb606;
+    width: 30%;
+    float: left;
+    padding: 20px;
+}
+
+.imgDiv img {
+    width: 100%;
+}
+
+.profileInfo {
+    width: 60%;
+    float: left;
+    padding: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-top: 75px;
+}
+
+.profileInfo h2 {
+    height: 100%;
+    padding-top: 80px;
+}
+
+.skillTitleDiv {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: inherit;
+    text-align: center;
+}
+
+.skills {
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: auto;
+}
+
+.professionalSkillsDiv {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    padding-bottom: 20px;
+}
+
+.personalSkillsDiv {
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+.wrapper {
+    padding-top: 40px;
+    padding-left: 50px;
+}
+
+.progressBar {
+    height: 5px;
+    margin-right: 20px;
+}
+
+.progressBarJava {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 30%, #ffb606 30%, #ffb606 100%);
+}
+
+.progressBarHTML {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 40%, #ffb606 40%, #ffb606 100%);
+}
+
+.progressBarCSS {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 70%, #ffb606 70%, #ffb606 100%);
+}
+
+.progressBarJavaScript {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 10%, #ffb606 10%, #ffb606 100%);
+}
+
+.progressBarComm {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 5%, #ffb606 5%, #ffb606 100%);
+}
+
+.progressBarTW {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 25%, #ffb606 25%, #ffb606 100%);
+}
+
+.progressBarCreat {
+    background: linear-gradient(to right, #012e5e 0%, #012e5e 20%, #ffb606 20%, #ffb606 100%);
+}
+
+.contactsTitle {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float: inherit;
+    text-align: center;
+}
+
+.contacts {
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.wrapperContacts {
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+.contactsLeft {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    padding-bottom: 20px;
+}
+
+.contactsRight {
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+.contactsOrange {
+    color: #ffb606;
+}
+
+.footer {
+    background-color: #012e5e;
+    height: 150px;
+}

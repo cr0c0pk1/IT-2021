@@ -25,7 +25,7 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("name");
 		String username = request.getParameter("username");
@@ -36,12 +36,14 @@ public class RegistrationServlet extends HttpServlet {
 		UserCollection userCollection = UserCollection.getInstance();
 		
 		if(userCollection.checkIfUserExists(newUser)) {
-			request.getRequestDispatcher("/reg.jsp").forward(request, response);
-			out.println("<h1>Username exists</h1>");
+			/*request.getRequestDispatcher("/reg.jsp").forward(request, response);
+			out.println("<h1>Username exists</h1>");*/
+			response.sendError(HttpServletResponse.SC_CONFLICT, "Username exists");
 		}
 		else {
 			userCollection.addUser(newUser);
-			request.getRequestDispatcher("/profile.jsp").forward(request, response);
+			/*request.getRequestDispatcher("/profile.jsp").forward(request, response);*/
+			response.sendError(HttpServletResponse.SC_CREATED, "Account created");
 		}
 	}
 

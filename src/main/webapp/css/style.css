@@ -1,0 +1,62 @@
+h2 {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #012e5e;
+}
+
+#outerDiv {
+    background: #ccc;
+    width: 900px;
+    /*height: 750px;*/
+    height: 100%;
+    margin: 0px auto;
+    padding-bottom: 50px;
+}
+
+.paded {
+    padding: 0px 20px;
+}
+
+#innerDiv {
+    border-radius: 5px;
+    background: orange;
+    margin: 20px 80px;
+}
+
+#name {
+    text-align: center;
+    padding-top: 40px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.inputLabels {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+#buttonDiv {
+    text-align: center;
+}
+
+#loginButton {
+    width: 50%;
+    background-color: #012e5e;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
+}

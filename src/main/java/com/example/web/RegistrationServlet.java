@@ -3,6 +3,7 @@ package com.example.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,25 +26,29 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
+		response.setCharacterEncoding("UTF-8");
 		//PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("name");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		User newUser = new User(name, username, password);
+		//User newUser = new User(name, username, password);
+		User newUser = new User();
+		newUser.setName(name);
+		newUser.setUsername(username);
+		newUser.setPassword(password);
 		
 		UserCollection userCollection = UserCollection.getInstance();
 		
 		if(userCollection.checkIfUserExists(newUser)) {
-			/*request.getRequestDispatcher("/reg.jsp").forward(request, response);
-			out.println("<h1>Username exists</h1>");*/
-			response.sendError(HttpServletResponse.SC_CONFLICT, "Username exists");
+			//request.setAttribute("Username exists", "Username exists");
+			request.getRequestDispatcher("/reg.jsp").forward(request, response);
+			//out.println("Username exists");
 		}
 		else {
 			userCollection.addUser(newUser);
-			/*request.getRequestDispatcher("/profile.jsp").forward(request, response);*/
-			response.sendError(HttpServletResponse.SC_CREATED, "Account created");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}
 

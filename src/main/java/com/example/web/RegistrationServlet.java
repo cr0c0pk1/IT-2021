@@ -2,6 +2,7 @@ package com.example.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,27 +28,37 @@ public class RegistrationServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("UTF-8");
-		//PrintWriter out = response.getWriter();
 		
 		String name = request.getParameter("name");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
-		//User newUser = new User(name, username, password);
-		User newUser = new User();
-		newUser.setName(name);
-		newUser.setUsername(username);
-		newUser.setPassword(password);
+		/*ArrayList<Skills> proSkills = new ArrayList<Skills>();
+		proSkills.add(new Skills("HTML", 15));
+		proSkills.add(new Skills("CSS", 30));
 		
+		ArrayList<Skills> personalSkills = new ArrayList<Skills>();
+		personalSkills.add(new Skills("Communicativeness", 20));
+		personalSkills.add(new Skills("Teamwork", 80));
+		
+		User newUser = new User(name, username, password, "exjob", "exdescription", 
+				proSkills, personalSkills, "exemail", "exphone", 
+				new Address("excity", "exstreet"));*/
+		
+		 User newUser = new User();
+		 newUser.setName(name);
+		 newUser.setUsername(username);
+		 newUser.setPassword(password);
+
 		UserCollection userCollection = UserCollection.getInstance();
 		
-		if(userCollection.checkIfUserExists(newUser)) {
-			//request.setAttribute("Username exists", "Username exists");
-			request.getRequestDispatcher("/reg.jsp").forward(request, response);
-			//out.println("Username exists");
+		if(userCollection.checkIfUsernameExists(newUser)) {
+			request.setAttribute("existingUser", "existing_user");
+			request.getRequestDispatcher("/reg.jsp").include(request, response);
 		}
 		else {
 			userCollection.addUser(newUser);
+			request.getSession().setAttribute("newUser", newUser);
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 	}

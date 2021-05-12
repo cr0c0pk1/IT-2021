@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +14,9 @@
 </head>
 <body>
     <div id="outerDiv">
+    	<% if("existing_user".equals(request.getAttribute("existingUser"))) { %>
+			<h3 style="color: red; text-align: center;">Потребителят вече е регистриран!</h3>
+		<% } %>
         <h2>Създаване на профил</h2>
         <div id="innerDiv">
             <form action="RegistrationServlet" method="post">

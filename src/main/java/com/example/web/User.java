@@ -1,21 +1,56 @@
 package com.example.web;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class User implements Serializable {
+	private static int counter = 1;
+	private int id;
 	private String name;
 	private String username;
 	private String password;
+	private String job;
+	private String description;
+	private ArrayList<Skills> proSkills;
+	private ArrayList<Skills> personalSkills;
+	private String email;
+	private String phone;
+	private Address address;
 	
-	public User() {}
+	public User() {
+		this.id = counter++;
+	}
 	
-	/*public User(String name, String username, String password) {
+	public User(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
+
+	public User(String name, String username, String password, String job, String description,
+			ArrayList<Skills> proSkills, ArrayList<Skills> personalSkills, String email, String phone,
+			Address address) {
 		this.name = name;
 		this.username = username;
 		this.password = password;
-	}*/
+		this.job = job;
+		this.description = description;
+		this.proSkills = proSkills;
+		this.personalSkills = personalSkills;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+	}
+	
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -38,6 +73,62 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public ArrayList<Skills> getPersonalSkills() {
+		return personalSkills;
+	}
+
+	public void setPersonalSkills(ArrayList<Skills> personalSkills) {
+		this.personalSkills = personalSkills;
+	}
+
+	public ArrayList<Skills> getProSkills() {
+		return proSkills;
+	}
+
+	public void setProSkills(ArrayList<Skills> proSkills) {
+		this.proSkills = proSkills;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
@@ -75,22 +166,4 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-	
-	/*@Override
-	public int hashCode() {
-		int prime = 31;
-		return prime + (username == null ? 0 : username.hashCode());
-		return Objects.hash(username, password);
-	}*/
-
-	/*@Override
-	public boolean equals(Object obj) {
-		if (obj == null) return false;
-		if (!(obj instanceof User))
-			return false;
-		if (obj == this)
-			return true;
-		return this.getUsername().equals(((User) obj).getUsername())
-				&& this.getPassword().equals(((User) obj).getPassword());
-	}*/
 }

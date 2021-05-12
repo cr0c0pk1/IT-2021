@@ -17,15 +17,24 @@
     </div>
     <div class="grayDiv">
         <div class="centeredDiv">
+        <form action="#" method="post">
             <div class="imgDiv">
                 <img src="imgs/male.svg" alt="male">
             </div>
             <div class="profileInfo">
                 <h2>Профилна информация</h2>
-                <p>ID: <c:out value="${loginUser.getId()}"></c:out></p>
-                <p>Име: <c:out value="${loginUser.getName()}"></c:out></p>
-                <p>Работа: <c:out value="${loginUser.getJob()}"></c:out></p>
-                <p>Описание: <c:out value="${loginUser.getDescription()}"></c:out></p>
+               	<p>ID: <c:out value="${user.getId()}"></c:out></p>
+                <label>Име: </label>
+                <br>
+                <input type="text" name="personalName" value="${loginUser.getName()}"/>
+                <br>
+                <label>Работа: </label>
+                <br>
+                <input type="text" name="job" value="${loginUser.getJob()}"/>
+                <br>
+                <label>Описание: </label>
+                <br>
+                <input type="text" name="description" value="${loginUser.getDescription()}"/>
             </div>
             <div class="skillTitleDiv">
                 <h2>Умения</h2>
@@ -35,14 +44,14 @@
                     <div class="professionalSkillsDiv">
                         <h3>Професионални</h3>
                         <c:forEach var="proSkill" items="${loginUser.getProSkills()}">
-                        	<p><c:out value="${proSkill.getSkillName()}"></c:out></p>
+                        	<input type="text" name="proSkill" value="${proSkill.getSkillName()}"/>
                         	<input class="progressBar" type="range" min="0" max="100" step="10" name="proSkillLevel" value="${proSkill.getSkillLevel()}"/>
                         </c:forEach>
                     </div>
                     <div class="personalSkillsDiv">
                         <h3>Личностни</h3>
-                        <c:forEach var="personalSkill" items="${loginUser.getPersonalSkills()}">
-                        	<p><c:out value="${personalSkill.getSkillName()}"></c:out></p>
+                        <c:forEach var="personalSkill" items="${loginUser.personalSkills}">
+                        	<input type="text" name="personalSkill" value="${personalSkill.getSkillName()}"/>
                         	<input class="progressBar" type="range" min="0" max="100" step="10" name="personalSkillLevel" value="${personalSkill.getSkillLevel()}"/>
                         </c:forEach>
                     </div>
@@ -55,18 +64,22 @@
                 <div class="wrapperContacts">
                     <div class="contactsLeft">
                         <p>Имейл</p>
-                            <a href="#" class="contactsOrange"><c:out value="${loginUser.getEmail()}"></c:out></a>
+                            <input type="text" name="email" value="${loginUser.getEmail()}"/>
                             <p>Телефон</p>
-                            <a href="#" class="contactsOrange"><c:out value="${loginUser.getPhone()}"></c:out></a>
+                            <input type="text" name="phone" value="${loginUser.getPhone()}"/>
                         </div>
                         <div class="contactsRight">
                             <p>Град</p>
-                            <p class="contactsOrange"><c:out value="${loginUser.getAddress().getCity()}"></c:out></p>
+                            <input type="text" name="city" value="${loginUser.getAddress().getCity()}"/>
                             <p>Улица</p>
-                            <p class="contactsOrange"><c:out value="${loginUser.getAddress().getStreet()}"></c:out></p>
+                            <input type="text" name="street" value="${loginUser.getAddress().getStreet()}"/>
                         </div>
                     </div>
             </div>
+            <div style="text-align: center;">
+                <input id="btnSave" type="submit" value="Запази"/>
+            </div>
+        </form>
         </div>
     </div>
     <div class="footer">

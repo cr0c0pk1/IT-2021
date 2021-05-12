@@ -77,6 +77,7 @@
 .progressBar {
     height: 5px;
     margin-right: 20px;
+    /*width: 50%;*/
 }
 
 .progressBarJava {
@@ -147,4 +148,15 @@
 .footer {
     background-color: #012e5e;
     height: 150px;
+}
+
+#btnSave {
+    width: 50%;
+    background-color: #012e5e;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
 }

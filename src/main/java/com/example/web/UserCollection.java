@@ -48,6 +48,15 @@ public class UserCollection {
 		return null;
 	}
 	
+	public int getID(String username) {
+		for(User u : users) {
+			if (u.getUsername().equals(username)) {
+				return u.getId();
+			}
+		}
+		return 0;
+	}
+	
 	@Override
 	public String toString() {
 		return "" + users;

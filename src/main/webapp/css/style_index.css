@@ -150,7 +150,7 @@
     height: 150px;
 }
 
-#btnSave {
+.buttons {
     width: 50%;
     background-color: #012e5e;
     color: white;

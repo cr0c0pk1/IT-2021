@@ -20,21 +20,20 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
+		UserCollection userCollection = UserCollection.getInstance();
+		
 		String loginUsername = request.getParameter("loginUsername");
 		String loginPass = request.getParameter("loginPass");
 		
-		HttpSession session = request.getSession();
-		User newUser = (User)session.getAttribute("newUser");
+		//HttpSession session = request.getSession();
+		//User newUser = (User)session.getAttribute("newUser");
 		
 		User loginUser = new User(loginUsername, loginPass);
-		
-		UserCollection userCollection = UserCollection.getInstance();
+		int userID = userCollection.getID(loginUsername);
+		loginUser.setId(userID);
 		
 		if(userCollection.checkIfUserExists(loginUser)) {
-			/*request.setAttribute("loginUser", loginUser);
-			request.getRequestDispatcher("/profile.jsp").forward(request, response);*/
-			session.invalidate();
-			request.getSession().setAttribute("loginUserID", newUser.getId());
+			request.getSession().setAttribute("loginUserID", loginUser.getId());
 			response.sendRedirect("UserServlet");
 		}
 		else {

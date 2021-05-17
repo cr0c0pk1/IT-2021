@@ -6,7 +6,6 @@ public class Skills {
 	private int skillLevel;
 	
 	public Skills(String skillName, int skillLevel) {
-		super();
 		this.skillName = skillName;
 		this.skillLevel = skillLevel;
 	}

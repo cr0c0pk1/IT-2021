@@ -17,7 +17,7 @@
     </div>
     <div class="grayDiv">
         <div class="centeredDiv">
-        <form action="#" method="post">
+        <form action="UserServlet" method="post">
             <div class="imgDiv">
                 <img src="imgs/male.svg" alt="male">
             </div>
@@ -26,15 +26,15 @@
                	<p>ID: <c:out value="${user.getId()}"></c:out></p>
                 <label>Име: </label>
                 <br>
-                <input type="text" name="personalName" value="${loginUser.getName()}"/>
+                <input type="text" name="personalName" value="${user.getName()}"/>
                 <br>
                 <label>Работа: </label>
                 <br>
-                <input type="text" name="job" value="${loginUser.getJob()}"/>
+                <input type="text" name="job" value="${user.getJob()}"/>
                 <br>
                 <label>Описание: </label>
                 <br>
-                <input type="text" name="description" value="${loginUser.getDescription()}"/>
+                <input type="text" name="description" value="${user.getDescription()}"/>
             </div>
             <div class="skillTitleDiv">
                 <h2>Умения</h2>
@@ -43,16 +43,23 @@
                 <div class="wrapper">
                     <div class="professionalSkillsDiv">
                         <h3>Професионални</h3>
-                        <c:forEach var="proSkill" items="${loginUser.getProSkills()}">
-                        	<input type="text" name="proSkill" value="${proSkill.getSkillName()}"/>
+                        <c:forEach var="proSkill" items="${user.getProSkills()}">
+                        	<!-- <input type="text" name="proSkill" value="${proSkill.getSkillName()}"/> -->
+                        	<c:out value="${proSkill.getSkillName()}"></c:out>
+                        	<br>
                         	<input class="progressBar" type="range" min="0" max="100" step="10" name="proSkillLevel" value="${proSkill.getSkillLevel()}"/>
+                        	<br>
                         </c:forEach>
+                        
                     </div>
                     <div class="personalSkillsDiv">
                         <h3>Личностни</h3>
-                        <c:forEach var="personalSkill" items="${loginUser.personalSkills}">
-                        	<input type="text" name="personalSkill" value="${personalSkill.getSkillName()}"/>
+                        <c:forEach var="personalSkill" items="${user.personalSkills}">
+                        	<!-- <input type="text" name="personalSkill" value="${personalSkill.getSkillName()}"/> -->
+                        	<c:out value="${personalSkill.getSkillName()}"></c:out>
+                        	<br>
                         	<input class="progressBar" type="range" min="0" max="100" step="10" name="personalSkillLevel" value="${personalSkill.getSkillLevel()}"/>
+                        	<br>
                         </c:forEach>
                     </div>
                 </div>
@@ -64,20 +71,20 @@
                 <div class="wrapperContacts">
                     <div class="contactsLeft">
                         <p>Имейл</p>
-                            <input type="text" name="email" value="${loginUser.getEmail()}"/>
+                            <input type="text" name="email" value="${user.getEmail()}"/>
                             <p>Телефон</p>
-                            <input type="text" name="phone" value="${loginUser.getPhone()}"/>
+                            <input type="text" name="phone" value="${user.getPhone()}"/>
                         </div>
                         <div class="contactsRight">
                             <p>Град</p>
-                            <input type="text" name="city" value="${loginUser.getAddress().getCity()}"/>
+                            <input type="text" name="city" value="${user.getAddress().getCity()}"/>
                             <p>Улица</p>
-                            <input type="text" name="street" value="${loginUser.getAddress().getStreet()}"/>
+                            <input type="text" name="street" value="${user.getAddress().getStreet()}"/>
                         </div>
                     </div>
             </div>
             <div style="text-align: center;">
-                <input id="btnSave" type="submit" value="Запази"/>
+                <input class="buttons" type="submit" value="Запази"/>
             </div>
         </form>
         </div>

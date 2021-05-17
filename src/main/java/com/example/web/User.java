@@ -14,13 +14,19 @@ public class User implements Serializable {
 	private String job;
 	private String description;
 	private ArrayList<Skills> proSkills;
-	private ArrayList<Skills> personalSkills;
+	private ArrayList<Skills> personalSkills; 
 	private String email;
 	private String phone;
 	private Address address;
 	
 	public User() {
 		this.id = counter++;
+		
+		this.proSkills = new ArrayList<Skills>();
+		User.addProSkills(proSkills);
+		
+		this.personalSkills = new ArrayList<Skills>();
+		User.addPersonalSkills(personalSkills);
 	}
 	
 	public User(String username, String password) {
@@ -165,5 +171,30 @@ public class User implements Serializable {
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
+	}
+	
+	public static void addProSkills(ArrayList<Skills> proSkills) {
+		proSkills.add(new Skills("Java", 0));
+		proSkills.add(new Skills("HTML", 0));
+		proSkills.add(new Skills("CSS", 0));
+		proSkills.add(new Skills("JavaScript", 0));
+	}
+	
+	public static void addPersonalSkills(ArrayList<Skills> personalSkills) {
+		personalSkills.add(new Skills("Communicativeness", 0));
+		personalSkills.add(new Skills("Teamwork", 0));
+		personalSkills.add(new Skills("Creativity", 0));
+	}
+	
+	public void setDetails(String name, String job, String description, ArrayList<Skills> proSkills, 
+			ArrayList<Skills> personalSkills, String email, String phone, Address address) {
+		this.name = name;
+		this.job = job;
+		this.description = description;
+		this.proSkills = proSkills;
+		this.personalSkills = personalSkills;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
 	}
 }

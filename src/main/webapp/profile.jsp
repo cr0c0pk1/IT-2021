@@ -67,10 +67,18 @@
                         </div>
                     </div>
             </div>
+            <div style="text-align: center;">
+            	<button id="btnEdit" class="buttons" onclick="location.href = 'EditProfilePage.jsp'">Редактиране</button>
+            </div>
         </div>
     </div>
     <div class="footer">
         
     </div>
 </body>
+<script type="text/javascript">
+    document.getElementById("btnEdit").onclick = function () {
+        location.href = "EditProfilePage.jsp";
+    };
+</script>
 </html>

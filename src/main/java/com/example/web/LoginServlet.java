@@ -15,7 +15,12 @@ public class LoginServlet extends HttpServlet {
         
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(false);
+		if (session == null || session.getAttribute("loginUser") == null) {
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		} else {
+			response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
+		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
@@ -33,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 		loginUser.setId(userID);
 		
 		if(userCollection.checkIfUserExists(loginUser)) {
-			request.getSession().setAttribute("loginUserID", loginUser.getId());
+			request.getSession().setAttribute("loginUser", loginUser);
 			response.sendRedirect("UserServlet");
 		}
 		else {

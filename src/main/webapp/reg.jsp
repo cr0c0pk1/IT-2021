@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,17 @@
     <%@ page isELIgnored="false"%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="myjs.js"></script> 
     <title>Reg</title>
 </head>
 <body>
+	<header class="paded" id="buttonHeader">
+		<c:if test="${empty loginUser}">
+    		<input id="headerButton" type="button" value="Вход" onclick="redirect('LoginServlet')">
+			<input id="headerButton" type="button" value="Регистрация" onclick="redirect('RegistrationServlet')">
+		</c:if>	
+		<input id="headerButton" type="button" value="Изход">
+	</header>
     <div id="outerDiv">
     	<% if("existing_user".equals(request.getAttribute("existingUser"))) { %>
 			<h3 style="color: red; text-align: center;">Потребителят вече е регистриран!</h3>

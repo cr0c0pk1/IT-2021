@@ -13,7 +13,15 @@
     <title>index</title>
 </head>
 <body>
-    <div class="header">
+	<c:if test="${empty loginUser}">
+		<jsp:forward page="login.jsp"/>
+	</c:if>
+    <div class="header" id = "buttonHeader">
+    	<c:if test="${empty loginUser}">
+    		<input id="headerButton" type="button" value="Вход">
+			<input id="headerButton" type="button" value="Регистрация">
+		</c:if>	
+		<input id="headerButton" type="button" value="Изход">
     </div>
     <div class="grayDiv">
         <div class="centeredDiv">

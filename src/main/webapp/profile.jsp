@@ -10,10 +10,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style_index.css">
+     <script src="myjs.js"></script> 
     <title>index</title>
 </head>
 <body>
-    <div class="header">
+	<c:if test="${empty loginUser}">
+		<jsp:forward page="login.jsp"/>
+	</c:if>
+    <div class="header" id="buttonHeader">
+    	<c:if test="${empty loginUser}">
+    		<input id="headerButton" type="button" value="Вход" onclick="redirect('LoginServlet')">
+			<input id="headerButton" type="button" value="Регистрация" onclick="redirect('RegistrationServlet')">
+		</c:if>		
+		<input id="headerButton" type="button" value="Изход">
     </div>
     <div class="grayDiv">
         <div class="centeredDiv">
@@ -68,7 +77,7 @@
                     </div>
             </div>
             <div style="text-align: center;">
-            	<button id="btnEdit" class="buttons" onclick="location.href = 'EditProfilePage.jsp'">Редактиране</button>
+            	<button id="btnEdit" class="buttons" onclick="redirect('UserServlet')">Редактиране</button>
             </div>
         </div>
     </div>
@@ -76,9 +85,5 @@
         
     </div>
 </body>
-<script type="text/javascript">
-    document.getElementById("btnEdit").onclick = function () {
-        location.href = "EditProfilePage.jsp";
-    };
-</script>
+
 </html>

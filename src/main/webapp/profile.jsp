@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.example.web.User"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,19 +11,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style_index.css">
-     <script src="myjs.js"></script> 
+     <script src="js/myjs.js"></script> 
     <title>index</title>
 </head>
 <body>
 	<c:if test="${empty loginUser}">
 		<jsp:forward page="login.jsp"/>
 	</c:if>
+	<% 
+	if("visitor".equals(request.getAttribute("firstTimeVisitor"))) { 
+	%>
+	<form class="welcome" action="ProfileServlet" method="post">
+		<h1 class="welcomeElements" style="color: red;">Добре дошли</h1>
+		<input id="headerButton" type="submit" name="btnTurnOff" value="Изключи"/>
+	</form>
+	<% } %>
     <div class="header" id="buttonHeader">
     	<c:if test="${empty loginUser}">
     		<input id="headerButton" type="button" value="Вход" onclick="redirect('LoginServlet')">
 			<input id="headerButton" type="button" value="Регистрация" onclick="redirect('RegistrationServlet')">
-		</c:if>		
-		<input id="headerButton" type="button" value="Изход">
+		</c:if>
+		<form action="ProfileServlet" method="post">		
+			<input id="headerButton" type="submit" name="btnLogout" value="Изход">
+		</form>
     </div>
     <div class="grayDiv">
         <div class="centeredDiv">

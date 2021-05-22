@@ -62,6 +62,7 @@ public class UserServlet extends HttpServlet {
 		
 		user.setDetails(personalName, job, description, proSkills, personalSkills, email, phone, address);
 		request.getSession().setAttribute("loginUser", user);
+		response.sendRedirect("ProfileServlet");
 	}
 
 }

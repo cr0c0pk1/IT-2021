@@ -22,6 +22,12 @@
   	<description></description>
   	<servlet-class>com.example.web.UserServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<display-name>ProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.example.web.ProfileServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegistrationServlet</servlet-name>
   	<url-pattern>/RegistrationServlet</url-pattern>
@@ -33,5 +39,9 @@
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<url-pattern>/ProfileServlet</url-pattern>
   </servlet-mapping>
 </web-app>

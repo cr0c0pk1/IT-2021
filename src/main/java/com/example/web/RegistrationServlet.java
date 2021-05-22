@@ -24,7 +24,7 @@ public class RegistrationServlet extends HttpServlet {
 		if (session == null || session.getAttribute("loginUser") == null) {
 			request.getRequestDispatcher("/reg.jsp").forward(request, response);
 		} else {
-			response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
+			response.sendRedirect(response.encodeRedirectURL("ProfileServlet"));
 		}
 	}
 

@@ -10,7 +10,7 @@
     <%@ page isELIgnored="false"%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="myjs.js"></script> 
+    <script src="js/myjs.js"></script> 
     <title>Reg</title>
 </head>
 <body>

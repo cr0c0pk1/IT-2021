@@ -31,12 +31,14 @@
     		<input id="headerButton" type="button" value="Вход" onclick="redirect('LoginServlet')">
 			<input id="headerButton" type="button" value="Регистрация" onclick="redirect('RegistrationServlet')">
 		</c:if>
-		<form action="ProfileServlet" method="post">		
+		<form action="ProfileServlet" method="post" id="headerButton">		
 			<input id="headerButton" type="submit" name="btnLogout" value="Изход">
 		</form>
+		<input id="headerButton" type="button" value="Потребители" onclick="redirect('AllUsersServlet')">
     </div>
     <div class="grayDiv">
         <div class="centeredDiv">
+        	<input type="hidden" name="id" value="${loginUser.getId()}">
             <div class="imgDiv">
                 <img src="imgs/male.svg" alt="male">
             </div>

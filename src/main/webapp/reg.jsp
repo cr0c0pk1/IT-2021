@@ -19,7 +19,7 @@
     		<input id="headerButton" type="button" value="Вход" onclick="redirect('LoginServlet')">
 			<input id="headerButton" type="button" value="Регистрация" onclick="redirect('RegistrationServlet')">
 		</c:if>	
-		<input id="headerButton" type="button" value="Изход">
+		<input id="headerButton" type="button" value="Потребители" onclick="redirect('AllUsersServlet')">
 	</header>
     <div id="outerDiv">
     	<% if("existing_user".equals(request.getAttribute("existingUser"))) { %>

@@ -38,7 +38,6 @@ public class ProfileServlet extends HttpServlet {
 		if(cookieExists) {
 			response.sendRedirect(response.encodeRedirectURL("profile.jsp"));
 		} else {
-			//да се покаже добре дошли и бутон изключи
 			request.setAttribute("firstTimeVisitor", "visitor");
 			request.getRequestDispatcher("/profile.jsp").forward(request, response);
 		}

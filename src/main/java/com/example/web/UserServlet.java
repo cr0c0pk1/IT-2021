@@ -20,10 +20,7 @@ public class UserServlet extends HttpServlet {
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		HttpSession session = request.getSession();
-		//userID = (int) session.getAttribute("loginUserID");
 		user = (User) session.getAttribute("loginUser");
-		//user = new User("", "");
-		//user.setId(userID);
 		
 		if(userCollection.checkForIDMatch(user) != null) {
 			user = userCollection.checkForIDMatch(user);

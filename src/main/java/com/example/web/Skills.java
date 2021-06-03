@@ -1,9 +1,13 @@
 package com.example.web;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 public class Skills {
 	
 	private String skillName;
 	private int skillLevel;
+	
+	public Skills() {};
 	
 	public Skills(String skillName, int skillLevel) {
 		this.skillName = skillName;

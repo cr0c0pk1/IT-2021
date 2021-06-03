@@ -2,8 +2,21 @@ package com.example.web;
 
 import java.util.HashSet;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlTransient;
+@XmlRootElement
+//@XmlSeeAlso({User.class})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class UserCollection {
+	@XmlTransient
 	private static UserCollection single_instance = null;
+	@XmlElementWrapper(name = "users")
+	@XmlElement(name = "user")
 	private HashSet<User> users;
 	
 	private UserCollection() {

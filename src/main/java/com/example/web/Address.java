@@ -1,9 +1,14 @@
 package com.example.web;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Address")
 public class Address {
 	
 	private String city;
 	private String street;
+	
+	public Address() {}
 	
 	public Address(String city, String street) {
 		super();

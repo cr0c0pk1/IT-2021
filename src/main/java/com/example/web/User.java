@@ -5,7 +5,18 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlTransient;
+@XmlRootElement(name = "user")
+@XmlSeeAlso({Address.class})
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User implements Serializable {
+	@XmlTransient
 	private static int counter = 1;
 	private int id;
 	private String name;
@@ -13,7 +24,11 @@ public class User implements Serializable {
 	private String password;
 	private String job;
 	private String description;
+	@XmlElementWrapper(name = "proSkillsList")
+	@XmlElement(name = "proSkill")
 	private ArrayList<Skills> proSkills;
+	@XmlElementWrapper(name = "personalSkillsList")
+	@XmlElement(name = "personalSkill")
 	private ArrayList<Skills> personalSkills; 
 	private String email;
 	private String phone;
